@@ -1,0 +1,4 @@
+#ifndef PY_H
+#define PY_H
+int check_cycle(listint_t *list);
+#endif /*PY_H*/
