@@ -5,7 +5,8 @@ absolute = number
 if absolute < 0:
     absolute = absolute * -1
     last = absolute % 10
-    last = last * -1
+    if last != 0:
+        last = last * -1
 else:
     last = absolute % 10
 if last > 5:
