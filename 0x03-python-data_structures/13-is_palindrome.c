@@ -11,13 +11,14 @@ listint_t *ptr;
 listint_t *ptr1;
 int length, i, j;
 i = j = 0;
-int a[1024];
+length = 0;
+*ptr = *head;
+*ptr1 = *head;
+int a[2000];
 if (head == NULL)
 return (0);
 if (*head == NULL || (*head)->next == NULL)
 return (1);
-length = 0;
-*ptr1 = *head;
 while (ptr1->next != NULL)
 {
 ptr1 = ptr1->next;
