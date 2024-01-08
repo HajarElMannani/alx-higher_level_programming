@@ -12,7 +12,5 @@ def add_tuple(tuple_a=(), tuple_b=()):
         tuple_b = tuple_b + (0, 0)
     elif len(tuple_b) > 2:
         tuple_b = tuple_b[0:2]
-    for i in zip(tuple_a, tuple_b):
-        add = sum(i)
-    adtup = tuple(add)
+    adtup = tuple(sum(i) for i in zip(tuple_a, tuple_b))
     return adtup
