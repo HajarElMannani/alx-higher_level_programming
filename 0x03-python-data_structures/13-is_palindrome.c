@@ -12,8 +12,8 @@ listint_t *ptr1;
 int length, i, j;
 i = j = 0;
 length = 0;
-*ptr = *head;
-*ptr1 = *head;
+ptr = *head;
+ptr1 = *head;
 int a[2000];
 if (!head)
 return (0);
@@ -30,7 +30,7 @@ a[i] = ptr->n;
 ptr = ptr->next;
 i++;
 }
-while (j < len)
+while (j < length)
 {
 if (a[length] != a[j])
 {
