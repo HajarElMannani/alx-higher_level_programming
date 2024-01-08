@@ -14,7 +14,7 @@ i = j = 0;
 length = 0;
 ptr = *head;
 ptr1 = *head;
-int a[2000];
+int a[6000];
 if (!head)
 return (0);
 if (!*head || (*head)->next == NULL)
