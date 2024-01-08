@@ -15,9 +15,9 @@ length = 0;
 *ptr = *head;
 *ptr1 = *head;
 int a[2000];
-if (head == NULL)
+if (!head)
 return (0);
-if (*head == NULL || (*head)->next == NULL)
+if (!*head || (*head)->next == NULL)
 return (1);
 while (ptr1->next != NULL)
 {
