@@ -1,4 +1,6 @@
 #include "lists.h"
+#include "stdio.h"
+#include "stdlib.h"
 /**
  *is_palindrome - function in C that checks if a
  * singly linked list is a palindrome
@@ -10,14 +12,14 @@ int is_palindrome(listint_t **head)
 listint_t *ptr;
 listint_t *ptr1;
 int length, i, j;
+int a[3000];
 i = j = 0;
 length = 0;
 ptr = *head;
 ptr1 = *head;
-int a[6000];
-if (!head)
+if (head == NULL)
 return (0);
-if (!*head || (*head)->next == NULL)
+if (*head == NULL || (*head)->next == NULL)
 return (1);
 while (ptr1->next != NULL)
 {
