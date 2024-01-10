@@ -5,7 +5,7 @@ def best_score(a_dictionary):
     else:
         score = 0
         for x, y in a_dictionary.items():
-            if y > value:
-                value = j
+            if y > score:
+                score = j
                 name = i
         return name
