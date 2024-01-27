@@ -1,0 +1,49 @@
+Testing the function add_integer
+================================
+The function returns the sum of 2 integers
+
+import function
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+>>> add_integer(1, 2)
+3
+
+>>> add_integer(0, -3)
+-3
+
+>>> add_integer(100, -2)
+98
+
+>>> add_integer(100.3, -2)
+98
+
+>>> add_integer(5, "b")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer("lol", 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(0.000000000000000000000009, 3)
+3
+
+>>> add_integer(2)
+100
+
+>>> add_integer(-2)
+96
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
