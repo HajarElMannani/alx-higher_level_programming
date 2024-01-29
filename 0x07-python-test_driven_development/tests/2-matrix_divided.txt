@@ -1,0 +1,36 @@
+tests for the function matrix_divided
+===============================
+matrix must be a list of lists of integers or floats
+Each row of the matrix must be of the same size
+div must be a number (integer or float) not equal to 0
+==============================
+#import function:
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+#test division:
+>>> matrix_divided([[9, 6, 3], [6, 5, 6]], 3)
+[[3.0, 2.0, 1.0], [2.0, 1.67, 2.0]]
+
+#division by 0:
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+#elements not integers or floats
+>>> matrix_divided([[1, "hello", 3], [4, 5, 6]], 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+#div is not an integer
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], "b")
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+#rows of matrix of te same size
+>>> matrix_divided([[1, 2, 3], [4, 5, 6, 2]], 3)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size

@@ -1,0 +1,39 @@
+test fot the function text_indentation
+=========================================
+function that prints a text with 2 new lines after
+each of these characters: ., ? and :
+========================================
+#import function
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+#type not string
+>>> text_indentation(56)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+#type string
+>>> text_indentation("this school: is cool? yes. it is.")
+this school:
+<BLANKLINE>
+is cool?
+<BLANKLINE>
+yes.
+<BLANKLINE>
+it is.
+
+#no argument
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+#one character
+>>> text_indentation("a")
+a
+
+#more than 1 argument
+>>> text_indentation("lorum", "epsum")
+Traceback (most recent call last):
+...
+TypeError: text_indentation() takes 1 positional argument but 2 were given
