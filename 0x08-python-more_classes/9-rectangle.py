@@ -13,8 +13,8 @@ class Rectangle:
             width (int): width of rectangle
             height (int): height of rectangle
         '''
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -69,9 +69,10 @@ class Rectangle:
         '''print rectangle'''
         if self.__width == 0 or self.__height == 0:
             return ""
-        for i in range(self.__height - 1):
-            print(str(self.print_symbol) * self.__width)
-        return (str(self.print_symbol) * self.__width)
+        row = str(self.print_symbol) * self.__width
+        figure = (row + '\n') * self.__height
+        figure = figure.strip()
+        return figure
 
     def __repr__(self):
         '''return string representation'''
@@ -86,7 +87,7 @@ class Rectangle:
     def bigger_or_equal(rect_1, rect_2):
         '''Return rectangle with the greatest area'''
         if isinstance(rect_1, Rectangle) is False:
-            raise TypeError("ect_1 must be an instance of Rectangle")
+            raise TypeError("rect_1 must be an instance of Rectangle")
         if isinstance(rect_2, Rectangle) is False:
             raise TypeError("rect_2 must be an instance of Rectangle")
         if rect_1.area() > rect_2.area():
@@ -98,5 +99,5 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         '''returns a square'''
-        new_rec = Rectangle(size, size)
-        return new_rec
+        new_rectangle = Rectangle(size, size)
+        return new_rectangle
