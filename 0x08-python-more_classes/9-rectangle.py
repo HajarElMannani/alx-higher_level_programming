@@ -67,7 +67,7 @@ class Rectangle:
 
     def __str__(self):
         '''print rectangle'''
-        if self.__width == 0 or self.__height == 0:
+        if (self.__width == 0) or (self.__height == 0):
             return ""
         row = str(self.print_symbol) * self.__width
         figure = (row + '\n') * self.__height
@@ -76,7 +76,7 @@ class Rectangle:
 
     def __repr__(self):
         '''return string representation'''
-        return "Rectangle ({}, {})".format(self.__width, self.__height)
+        return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
         '''delete an instance'''
@@ -100,5 +100,5 @@ class Rectangle:
     def square(cls, size=0):
         '''returns a square
         args:
-              size(int) size of the square'''
-        return (cls(size, size))
+              size(int): size of the square'''
+        return cls(size, size)
