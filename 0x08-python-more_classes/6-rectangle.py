@@ -12,8 +12,8 @@ class Rectangle:
             width (int): width of rectangle
             height (int): height of rectangle
         '''
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
@@ -71,6 +71,10 @@ class Rectangle:
         for i in range(self.__height - 1):
             print("#" * self.__width)
         return ("#" * self.__width)
+        row = "#" * self.__width
+        figure = (row + '\n') * self.__height
+        figure = figure.strip()
+        return figure
 
     def __repr__(self):
         '''return string representation'''
