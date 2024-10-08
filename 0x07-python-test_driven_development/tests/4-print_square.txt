@@ -8,7 +8,6 @@ size must be greater or equal to 0
 
 #print square size 0
 >>> print_square(0)
-<BLANKLINE>
 
 #print square size 4
 >>> print_square(4)
@@ -46,3 +45,31 @@ TypeError: size must be an integer
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer
+
+#size is boolean
+>>> print_square(True)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+#large float
+>>> print_square(1e300)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+#no argument
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+#size is empty string
+>>> print_square("")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+#size 1
+>>> print_square(1)
+#

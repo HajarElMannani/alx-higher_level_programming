@@ -12,6 +12,9 @@ import function
 >>> add_integer(0, -3)
 -3
 
+>>> add_integer(2.3, 6.2)
+8
+
 >>> add_integer(100, -2)
 98
 
@@ -24,6 +27,11 @@ Traceback (most recent call last):
 TypeError: b must be an integer
 
 >>> add_integer("lol", 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer("me" ,"f")
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer
@@ -47,3 +55,7 @@ Traceback (most recent call last):
 ...
 TypeError: add_integer() missing 1 required positional argument: 'a'
 
+>>> add_integer(1e350, 1e320)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer

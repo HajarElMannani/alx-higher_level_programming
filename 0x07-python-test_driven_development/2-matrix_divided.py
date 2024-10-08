@@ -10,21 +10,18 @@ def matrix_divided(matrix, div):
     Returns:
         divided matrix
     '''
+    div_matrix = [[]]
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    if type(div) is not int and type(div) is not float:
+    if (type(div) != int) and (type(div) != float):
         raise TypeError("div must be a number")
-    row_len = []
-    i = 0
     for row in matrix:
-        for row[i] in row:
-            if type(row[i]) is not int and type(row[i]) is not float:
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
-        row_len.append(len(row))
-    for j in row_len:
-        if j != row_len[0]:
+        for i in row:
+            if (type(i) != int) and (type(i) != float):
+                raise TypeError("matrix must be a matrix \
+(list of lists) of integers/floats")
+    for i in range(len(matrix) - 1):
+        if len(matrix[i]) != len(matrix[i + 1]):
             raise TypeError("Each row of the matrix must have the same size")
-    divl = []
-    k = 0
-    divl = [[round(elem / div, 2) for elem in row] for row in matrix]
-    return divl
+    div_matrix = [[round((num / div), 2) for num in row] for row in matrix]
+    return (div_matrix)

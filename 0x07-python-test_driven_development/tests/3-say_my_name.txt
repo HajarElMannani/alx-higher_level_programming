@@ -37,11 +37,28 @@ Traceback (most recent call last):
 ...
 TypeError: first_name must be a string
 
+#no string
+>>> say_my_name(5)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
 #None
 >>> say_my_name(None)
 Traceback (most recent call last):
 ...
 TypeError: first_name must be a string
 
+#empty first name
+>>> say_my_name("", "Smith")
+My name is  Smith
+
+#empty strings
 >>> say_my_name("", "")
 My name is  
+
+#name is boolean
+>>> say_my_name(True)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
