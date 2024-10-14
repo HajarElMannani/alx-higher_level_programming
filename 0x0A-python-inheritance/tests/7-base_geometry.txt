@@ -63,7 +63,11 @@
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] name must be an integer
 
-
+>>> try:
+...    bg.integer_validator("name", (3,))
+... except Exception as e:
+...    print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
 
 >>> bg.integer_validator(None)
 Traceback (most recent call last):
@@ -75,4 +79,4 @@ Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
->>> bg.integer_validator("name", 5)
+
