@@ -1,12 +1,12 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
 
->>> bg.integer_validator("my_int", 12)
->>> bg.integer_validator("width", 89)
+>>> bg.integer_validator("my_int", 85)
+>>> bg.integer_validator("width", 99)
 
 #check for value is string 
 >>> try:
-...    bg.integer_validator("name", "John")
+...    bg.integer_validator("name", "Hajar")
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] name must be an integer
@@ -28,7 +28,7 @@
 
 #check for value is negative
 >>> try:
-...    bg.integer_validator("distance", -4)
+...    bg.integer_validator("distance", -2)
 ... except Exception as e:
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] distance must be greater than 0
@@ -63,3 +63,10 @@
 ...    print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] name must be an integer
 
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> bg.integer_validator("name", 5)
