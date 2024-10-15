@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''function read_file print to pstdout'''
+'''function read_file print to stdout'''
 
 
 def read_file(filename=""):
@@ -8,5 +8,5 @@ def read_file(filename=""):
         filename(FILE): pah of the file to read
     Return: Nothing'''
 
-    with open(filename, 'r') as my_file:
-        print(my_file.read())
+    with open(filename, 'r', encoding="UTF-8") as my_file:
+        print(my_file.read(),end='')
