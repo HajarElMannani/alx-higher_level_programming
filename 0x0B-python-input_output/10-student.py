@@ -13,7 +13,7 @@ class Student:
     def to_json(self, attrs=None):
         '''method that retrieves a dictionary representation of a\
  Student instance
-        args: 
+        args:
             attrs: attribute names
         Return: dictionary representation of a Student instance'''
         if not attrs:
