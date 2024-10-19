@@ -15,11 +15,11 @@ class Rectangle(Base):
             y(int): coordinate y
             id(int): id of the class
         Return: nothing'''
+        super().__init__(id)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
-        super().__init__(id)
 
     @property
     def width(self):
@@ -104,7 +104,39 @@ class Rectangle(Base):
         '''that prints in stdout the Rectangle instance with the
  character #
         Return: Nothing'''
+        for i in range(self.__y):
+            print()
         for i in range(self.__height):
+            for k in range(self.__x):
+                print(" ", end="")
             for j in range(self.__width):
                 print("#", end="")
             print()
+
+
+    def __str__(self):
+        '''return string to print
+        Return: a string'''
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
+    def update(self, *args, **kwargs):
+        '''public method that assigns an argument to each attribute
+        args:
+            *args(int): arguments to assign to attributes
+            **kwargs(key/value): double pointerto dictionary
+        Return: nothing'''
+        attributes = ['id', 'width', 'height', 'x', 'y']
+        if (args):
+            for i, arg in enumerate(args):
+                if i < 5:
+                    setattr(self, attributes[i], arg)
+        else:
+            for key, value in kwargs.items():
+                if key in attributes:
+                    setattr(self, key, value)                    
+
+
+    def to_dictionary(self):
+        '''method returns the dictionary representation of a Rectangle
+        Return: dictionary representation'''
+        return {"id": self.id, "width": self.__width, "height": self.__height, "x": self.__x, "y": self.__y}
