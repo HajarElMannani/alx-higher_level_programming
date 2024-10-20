@@ -484,7 +484,25 @@ class TestUpdateKwargs(unittest.TestCase):
         r1.update(2, 1, width=5, x=3)
         self.assertEqual(str(r1), "[Rectangle] (2) 10/10 - 1/10")
 
+class TestToDictionary(unittest.TestCase):
 
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 1, 9, 3)
+        r1_dict = r1.to_dictionary()
+        self.assertDictEqual(r1_dict, {'x': 1, 'y': 9, 'id': 3, 'height': 2, 'width': 10})
+        #if dictionary
+
+    def test_to_dictionary_one_argument(self):
+        r1 = Rectangle(10, 2, 1, 9, 3)
+        with self.assertRaises(TypeError):
+            r1.to_dictionary(1)
+
+    def test_to_dictionary_update(self):
+        r1 = Rectangle(10, 2, 1, 9, 3)
+        r2 = Rectangle(3, 7, 5, 2, 9)
+        r2.update(**r1.to_dictionary())
+        self.assertFalse(r1 == r2)
+        
 
     
 if __name__ == '__main__':
