@@ -218,5 +218,10 @@ class TestLoadFromFiles(unittest.TestCase):
         list_rectangle_output = Rectangle.load_from_file()
         self.assertTrue((type(obj) is Rectangle for obj in list_rectangle_output))
 
+    
+
+
+
+
 if __name__ == '__main__':
     unittest.main()
