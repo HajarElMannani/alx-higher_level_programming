@@ -167,11 +167,56 @@ class TestCreate(unittest.TestCase):
         r2 = Rectangle.create(**r1_dictionary)
         self.assertFalse(r1 is r2)
 
+    def test_create_square(self):
+        s1 = Square(3, 5, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual(str(s1), str(s2))
 
+    def test_create_is_equal_square(self):
+        s1 = Square(3, 5, 2)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertFalse(s1 == s2)
 
+    def test_create_is_square(self):
+        s1 = Square(3, 5, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertFalse(s1 is s2)
 
+class TestLoadFromFiles(unittest.TestCase):
 
+    def tearDown(self):
+        try:
+            os.remove("Rectangle.json")
+        except FileNotFoundError:
+            pass
+        try:
+            os.remove("Square.json")
+        except FileNotFoundError:
+            pass
+        
+    def test_load_from_file(self):
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        list_rectangles_input = [r1]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(r1), str(list_rectangles_output[0]))
+        
+    def test_load_from_file_two_rectangle(self):
+        r1 = Rectangle(2, 4, 5, 3, 1)
+        r2 = Rectangle(5, 8, 5, 9, 2)
+        Rectangle.save_to_file([r1, r2])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(r2), str(list_rectangles_output[1]))
 
+    def test_load_from_file_type(self):
+        r1 = Rectangle(2, 4, 5, 3, 1)
+        r2 = Rectangle(5, 8, 5, 9, 2)
+        Rectangle.save_to_file([r1, r2])
+        list_rectangle_output = Rectangle.load_from_file()
+        self.assertTrue((type(obj) is Rectangle for obj in list_rectangle_output))
 
 if __name__ == '__main__':
     unittest.main()
