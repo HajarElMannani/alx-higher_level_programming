@@ -32,13 +32,11 @@ class Rectangle(Base):
         '''setter for width
         args:
             value(int): value of width'''
-        #width and height must be int and positive
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
-
 
     @property
     def height(self):
@@ -51,7 +49,6 @@ class Rectangle(Base):
         '''setter for height
         args:
         value(int): value of height'''
-        # value must be int and positive
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -69,7 +66,6 @@ class Rectangle(Base):
         '''setter for x
         args:
             value(int): value of x'''
-        #conditions on x
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -87,13 +83,11 @@ class Rectangle(Base):
         '''setter for y
         args:
         value(int): value of y'''
-        #conditions on y
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-
 
     def area(self):
         '''area of the triangle
@@ -112,7 +106,6 @@ class Rectangle(Base):
             for j in range(self.__width):
                 print("#", end="")
             print()
-
 
     def __str__(self):
         '''return string to print
@@ -133,8 +126,7 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 if key in attributes:
-                    setattr(self, key, value)                    
-
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         '''method returns the dictionary representation of a Rectangle

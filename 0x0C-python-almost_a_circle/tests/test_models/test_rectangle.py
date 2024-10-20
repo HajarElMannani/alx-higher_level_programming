@@ -6,19 +6,14 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
-class TestRectangle(unittest.TestCase):
-    def setUp(self):
-        self.rectangle = Rectangle(1, 1, 0, 0, None)
 
-   # def test_valid_init(self):
-    #    rectangle = Rectangle(10, 2)
-     #   self.assertEqual(rectangle.id, 5)
+class TestRectangle(unittest.TestCase):
 
     def test_valid_init1(self):
         rectangle = Rectangle(2, 10)
-        self.assertEqual(rectangle.id, 3)
+        self.assertEqual(rectangle.id, 15)
 
-    def	test_valid_init1(self):
+    def test_valid_init1(self):
         rectangle = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(rectangle.id, 12)
 
@@ -54,7 +49,7 @@ class TestHeight(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(2, (1,))
         self.assertEqual(str(context.exception), "height must be an integer")
-        
+
     def test_float_height(self):
         with self.assertRaises(TypeError) as context:
             Rectangle(1, 0.2)
@@ -64,17 +59,15 @@ class TestHeight(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(1, {"height": 1})
         self.assertEqual(str(context.exception), "height must be an integer")
-    
 
 
-class TestWidth(unittest.TestCase):     
-
+class TestWidth(unittest.TestCase):
 
     def test_zero_width(self):
         with self.assertRaises(ValueError) as context:
             Rectangle(0, 2)
         self.assertEqual(str(context.exception), "width must be > 0")
-        
+
     def test_negative_width(self):
         with self.assertRaises(ValueError) as context:
             Rectangle(-10, 2)
@@ -89,17 +82,17 @@ class TestWidth(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(None, 2)
         self.assertEqual(str(context.exception), "width must be an integer")
-        
+
     def test_list_width(self):
         with self.assertRaises(TypeError) as context:
             Rectangle([1, 2], 2)
         self.assertEqual(str(context.exception), "width must be an integer")
-        
+
     def test_tuple_width(self):
         with self.assertRaises(TypeError) as context:
             Rectangle((1,), 2)
         self.assertEqual(str(context.exception), "width must be an integer")
-        
+
     def test_float_width(self):
         with self.assertRaises(TypeError) as context:
             Rectangle(1.2, 2)
@@ -109,7 +102,7 @@ class TestWidth(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle({"width": 1}, 2)
         self.assertEqual(str(context.exception), "width must be an integer")
-        
+
 
 class TestX(unittest.TestCase):
 
@@ -117,7 +110,6 @@ class TestX(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             Rectangle(10, 2, -1)
         self.assertEqual(str(context.exception), "x must be >= 0")
- 
 
     def test_string_x(self):
         with self.assertRaises(TypeError) as context:
@@ -138,7 +130,7 @@ class TestX(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(2, 1, (1,))
         self.assertEqual(str(context.exception), "x must be an integer")
-        
+
     def test_float_x(self):
         with self.assertRaises(TypeError) as context:
             Rectangle(1, 1, 0.2)
@@ -149,14 +141,13 @@ class TestX(unittest.TestCase):
             Rectangle(1, 1, {"x": 1})
         self.assertEqual(str(context.exception), "x must be an integer")
 
+
 class TestY(unittest.TestCase):
 
-    
     def test_negative_y(self):
         with self.assertRaises(ValueError) as context:
             Rectangle(10, 1, 1, -2)
         self.assertEqual(str(context.exception), "y must be >= 0")
-
 
     def test_string_y(self):
         with self.assertRaises(TypeError) as context:
@@ -177,7 +168,7 @@ class TestY(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(2, 1, 1, (1,))
         self.assertEqual(str(context.exception), "y must be an integer")
-        
+
     def test_float_y(self):
         with self.assertRaises(TypeError) as context:
             Rectangle(1, 1, 1, 3.2)
@@ -187,6 +178,7 @@ class TestY(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(1, 1, 1, {"height": 1})
         self.assertEqual(str(context.exception), "y must be an integer")
+
 
 class TestArea(unittest.TestCase):
     '''test the are module'''
@@ -203,7 +195,6 @@ class TestArea(unittest.TestCase):
         r3.width = 5
         r3.height = 4
         self.assertEqual(r3.area(), 20)
-
 
     def test_only_one(self):
         r4 = Rectangle(2, 4)
@@ -257,13 +248,13 @@ class TestDisplay(unittest.TestCase):
         sys.stdout = sys.__stdout__
         expected = ("\n\n   ##\n   ##\n   ##\n")
         self.assertEqual(cap_output.getvalue(), expected)
-        
+
     def test_display_one_argmnt(self):
         r6 = Rectangle(3, 2, 5, 7, 3)
         with self.assertRaises(TypeError):
             r6.display(1)
 
-        
+
 class TestStr(unittest.TestCase):
     '''test __str__method'''
     def test_str(self):
@@ -279,8 +270,8 @@ class TestStr(unittest.TestCase):
         self.assertEqual(str(r2), "[Rectangle] ([3]) 3/8 - 2/5")
 
     def test_str(self):
-         r3 = Rectangle(5, 5, 1, 0, 2)
-         self.assertEqual(str(r3), "[Rectangle] (2) 1/0 - 5/5")
+        r3 = Rectangle(5, 5, 1, 0, 2)
+        self.assertEqual(str(r3), "[Rectangle] (2) 1/0 - 5/5")
 
     def test_str_one_arg(self):
         r = Rectangle(5, 7, 0, 3, 1)
@@ -325,7 +316,7 @@ class TestUpdate(unittest.TestCase):
         r1.update(89, 2, 3, 4, 5)
         r1.update(6, 2, 4, 7, 2)
         self.assertEqual(str(r1), "[Rectangle] (6) 7/2 - 2/4")
-    
+
     def test_update_None(self):
         r1 = Rectangle(10, 10, 10, 10, 10)
         r1.update(None)
@@ -335,7 +326,7 @@ class TestUpdate(unittest.TestCase):
         r1 = Rectangle(10, 10, 10, 10, 10)
         r1.update(None, 2, 3, 4)
         self.assertEqual(str(r1), f"[Rectangle] ({r1.id}) 4/10 - 2/3")
-        
+
     def test_update_width_zero(self):
         r1 = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
@@ -386,6 +377,7 @@ class TestUpdate(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r1.update(3, 4, 2, 1, "be")
 
+
 class TestUpdateKwargs(unittest.TestCase):
 
     def test_update_kwargs(self):
@@ -423,7 +415,7 @@ class TestUpdateKwargs(unittest.TestCase):
         r1.update(id=2, x=3, height=1)
         r1.update(y=5, height=7, width=4)
         self.assertEqual(str(r1), f"[Rectangle] (2) 3/5 - 4/7")
-        
+
     def test_update_width_zero(self):
         r1 = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
@@ -484,13 +476,13 @@ class TestUpdateKwargs(unittest.TestCase):
         r1.update(2, 1, width=5, x=3)
         self.assertEqual(str(r1), "[Rectangle] (2) 10/10 - 1/10")
 
+
 class TestToDictionary(unittest.TestCase):
 
     def test_to_dictionary(self):
         r1 = Rectangle(10, 2, 1, 9, 3)
         r1_dict = r1.to_dictionary()
         self.assertDictEqual(r1_dict, {'x': 1, 'y': 9, 'id': 3, 'height': 2, 'width': 10})
-        #if dictionary
 
     def test_to_dictionary_one_argument(self):
         r1 = Rectangle(10, 2, 1, 9, 3)
@@ -502,8 +494,7 @@ class TestToDictionary(unittest.TestCase):
         r2 = Rectangle(3, 7, 5, 2, 9)
         r2.update(**r1.to_dictionary())
         self.assertFalse(r1 == r2)
-        
 
-    
+
 if __name__ == '__main__':
-    unittest.main()         
+    unittest.main()
