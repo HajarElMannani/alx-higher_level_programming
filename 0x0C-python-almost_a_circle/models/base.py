@@ -38,11 +38,12 @@ class Base():
             list_objs(list): list of instances who inherits of Base
         Return: Nothing'''
         filename  = f"{cls.__name__}.json"
-        if list_objs == None:
-            list_objs = []
-        list_dictionaries = [obj.to_dictionary() for obj in list_objs]
         with open(filename, 'w') as my_file:
-            my_file.write(cls.to_json_string(list_dictionaries))
+            if (list_objs is None) or (not list_objs):
+                my_file.write("[]")
+            else:
+                list_dictionaries = [obj.to_dictionary() for obj in list_objs]
+                my_file.write(cls.to_json_string(list_dictionaries))
 
     @staticmethod
     def from_json_string(json_string):

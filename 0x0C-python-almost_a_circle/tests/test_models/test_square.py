@@ -485,5 +485,25 @@ class TestUpdateKwargsSquare(unittest.TestCase):
         s1.update(2, 1, size=5, x=3)
         self.assertEqual(str(s1), "[Square] (2) 10/10 - 1")
 
+class TestToDictionarySquare(unittest.TestCase):
+
+    def test_to_dictionary_Square(self):
+        s1 = Square(10, 2, 1, 2)
+        s1_dict = s1.to_dictionary()
+        self.assertDictEqual(s1_dict, {'x': 2, 'y': 1, 'id': 2, 'size': 10})
+        #test type
+
+    def test_to_dictionary_one_argument_s(self):
+        s1 = Square(10, 1, 9, 3)
+        with self.assertRaises(TypeError):
+            s1.to_dictionary(1)
+
+    def test_to_dictionary_update_Square(self):
+        s1 = Square(10, 1, 9, 3)
+        s2 = Square(3, 5, 2, 9)
+        s2.update(**s1.to_dictionary())
+        self.assertFalse(s1 == s2)
+        
+
 if __name__ == '__main__':
     unittest.main()
