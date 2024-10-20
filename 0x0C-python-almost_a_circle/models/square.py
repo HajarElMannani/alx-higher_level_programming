@@ -7,15 +7,14 @@ class Square(Rectangle):
 
     def __init__(self, size, x=0, y=0, id=None):
         '''initialisation of the class Square'''
-        super().__init__(size, size, x, y)
-        self.__size = size
-
+        super().__init__(size, size, x, y, id)
+ 
 
     @property
     def size(self):
         '''getter for size
         Return: size'''
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -24,18 +23,17 @@ class Square(Rectangle):
             value(int): value of size
         Return: Nothing'''
         try:
-            super(Square, Square).width.__set__(self, value)
-            self.__size = value
+            self.width = value
+            self.height = value
         except TypeError as e:
             raise
         except ValueError as e:
             raise
-    #handle exception
         
     def __str__(self):
         '''return string to print
         Return: string'''
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.__size}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     def update(self, *args, **kwargs):
         '''function that assigns attributes

@@ -22,7 +22,7 @@ class TestRectangle(unittest.TestCase):
         rectangle = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(rectangle.id, 12)
 
-'''
+
 class TestHeight(unittest.TestCase):
 
     def test_negative_heiht(self):
@@ -187,7 +187,7 @@ class TestY(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(1, 1, 1, {"height": 1})
         self.assertEqual(str(context.exception), "y must be an integer")
-'''
+
 class TestArea(unittest.TestCase):
     '''test the are module'''
     def test_area(self):
@@ -288,7 +288,7 @@ class TestStr(unittest.TestCase):
             r.__str__(1)
 
 
-class testUpdate(unittest.TestCase):
+class TestUpdate(unittest.TestCase):
 
     def test_update(self):
         r1 = Rectangle(10, 10, 10, 10)
@@ -386,7 +386,7 @@ class testUpdate(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             r1.update(3, 4, 2, 1, "be")
 
-class testUpdateKwargs(unittest.TestCase):
+class TestUpdateKwargs(unittest.TestCase):
 
     def test_update_kwargs(self):
         r1 = Rectangle(10, 10, 10, 10)
@@ -485,7 +485,7 @@ class testUpdateKwargs(unittest.TestCase):
         self.assertEqual(str(r1), "[Rectangle] (2) 10/10 - 1/10")
 
 
-class testDictonary(unittest.TestCase):
+
     
 if __name__ == '__main__':
     unittest.main()         
