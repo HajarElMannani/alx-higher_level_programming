@@ -2,13 +2,13 @@
 '''Class Square that inherits from Rectangle'''
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     '''A class that inherits from Rectangle'''
 
     def __init__(self, size, x=0, y=0, id=None):
         '''initialisation of the class Square'''
         super().__init__(size, size, x, y, id)
- 
 
     @property
     def size(self):
@@ -29,7 +29,7 @@ class Square(Rectangle):
             raise
         except ValueError as e:
             raise
-        
+
     def __str__(self):
         '''return string to print
         Return: string'''
