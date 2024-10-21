@@ -29,7 +29,6 @@ class Base():
             return "[]"
         return json.dumps(list_dictionaries)
 
-
     @classmethod
     def save_to_file(cls, list_objs):
         '''method that writes the JSON string representation of/
@@ -37,7 +36,7 @@ class Base():
         args:
             list_objs(list): list of instances who inherits of Base
         Return: Nothing'''
-        filename  = f"{cls.__name__}.json"
+        filename = f"{cls.__name__}.json"
         with open(filename, 'w') as my_file:
             if (list_objs is None) or (not list_objs):
                 my_file.write("[]")
@@ -80,7 +79,8 @@ class Base():
         try:
             with open(filename, 'r') as my_file:
                 list_dictionaries = cls.from_json_string(my_file.read())
-                instances = [cls.create(**dictionary) for dictionary in list_dictionaries]
+                instances = [cls.create(**dictionary)
+                             for dictionary in list_dictionaries]
                 return instances
         except IOError:
             return []
