@@ -110,7 +110,8 @@ class Rectangle(Base):
     def __str__(self):
         '''return string to print
         Return: a string'''
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+        return (f"[Rectangle] ({self.id}) {self.__x}/{self.__y} "
+                f"- {self.__width}/{self.__height}")
 
     def update(self, *args, **kwargs):
         '''public method that assigns an argument to each attribute
@@ -131,4 +132,8 @@ class Rectangle(Base):
     def to_dictionary(self):
         '''method returns the dictionary representation of a Rectangle
         Return: dictionary representation'''
-        return {"id": self.id, "width": self.__width, "height": self.__height, "x": self.__x, "y": self.__y}
+        return {"id": self.id,
+                "width": self.__width,
+                "height": self.__height,
+                "x": self.__x,
+                "y": self.__y}
