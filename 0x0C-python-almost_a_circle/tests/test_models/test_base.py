@@ -36,12 +36,17 @@ class TestToJsonString(unittest.TestCase):
     def Test_to_json_string(self):
         r1 = Rectangle(10, 7, 2, 8, 1)
         json_dictionary = Base.to_json_string([r1.to_dictionary()])
-        self.assertEqual(str(json_dictionary), [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}])
+        self.assertEqual(str(json_dictionary), [{"x": 2,
+                                                 "width": 10,
+                                                 "id": 1,
+                                                 "height": 7,
+                                                 "y": 8}])
 
     def test_to_json_string_two_rectangles(self):
         r1 = Rectangle(10, 7, 2, 8, 1)
         r2 = Rectangle(2, 7, 8, 5, 3)
-        json_dictionaries = Base.to_json_string([r1.to_dictionary(), r2.to_dictionary()])
+        json_dictionaries = Base.to_json_string([r1.to_dictionary(),
+                                                 r2.to_dictionary()])
         self.assertEqual(len(json_dictionaries), 105)
 
     def test_to_json_string_square(self):
@@ -110,13 +115,18 @@ class TestFromJsonString(unittest.TestCase):
         list_input = [{'id': 89, 'width': 10, 'height': 4}]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
-        self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}])
+        self.assertEqual(list_output, [{'height': 4,
+                                        'width': 10,
+                                        'id': 89}])
 
     def test_from_json_string_two(self):
-        list_input = [{'id': 89, 'width': 10, 'height': 4}, {'id': 7, 'width': 1, 'height': 7}]
+        list_input = [{'id': 89, 'width': 10, 'height': 4}, {'id': 7,
+                                                             'width': 1,
+                                                             'height': 7}]
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
-        self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
+        self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89},
+                                       {'height': 7, 'width': 1, 'id': 7}])
 
     def test_from_json_string_type(self):
         list_input = [{"id": 89, "width": 10, "height": 4}]
@@ -210,7 +220,6 @@ class TestCreate(unittest.TestCase):
         self.assertEqual("[Square] (2) 8/1 - 3", str(s2))
 
 
-
 class TestLoadFromFiles(unittest.TestCase):
 
     def tearDown(self):
@@ -249,7 +258,8 @@ class TestLoadFromFiles(unittest.TestCase):
         r2 = Rectangle(5, 8, 5, 9, 2)
         Rectangle.save_to_file([r1, r2])
         list_rectangle_output = Rectangle.load_from_file()
-        self.assertTrue((type(obj) is Rectangle for obj in list_rectangle_output))
+        self.assertTrue((type(obj) is Rectangle
+                         for obj in list_rectangle_output))
 
     def test_load_from_file_square(self):
         s1 = Square(10, 7, 2, 1)
