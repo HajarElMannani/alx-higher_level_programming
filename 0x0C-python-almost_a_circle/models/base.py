@@ -6,7 +6,7 @@ import json
 class Base():
     '''the class Base is the base class for this project'''
     __nb_objects = 0
-    
+
     def __init__(self, id=None):
         '''initialisation of the class
         args:
@@ -28,7 +28,7 @@ class Base():
         if not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
-    
+
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -51,12 +51,12 @@ class Base():
  json_string
         args:
             json_string(str): string representing list of\
- dictionnaries        
+ dictionnaries
         Return: a list of json string reprentation'''
         if not json_string:
-            return [] 
+            return []
         return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         '''method that returns an instance with all attributes/
@@ -72,7 +72,6 @@ class Base():
             dummy.update(**dictionary)
             return dummy
 
-        
     @classmethod
     def load_from_file(cls):
         '''method that returns a list of instances
