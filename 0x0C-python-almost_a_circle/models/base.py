@@ -77,9 +77,10 @@ class Base():
         '''method that returns a list of instances
         Return: list of instances'''
         filename = f"{cls.__name__}.json"
-        if not filename:
+        try:
+            with open(filename, 'r') as my_file:
+                list_dictionaries = cls.from_json_string(my_file.read())
+                instances = [cls.create(**dictionary) for dictionary in list_dictionaries]
+                return instances
+        except IOError:
             return []
-        with open(filename, 'r') as my_file:
-            list_dictionaries = cls.from_json_string(my_file.read())
-            instances = [cls.create(**dictionary) for dictionary in list_dictionaries]
-            return instances
