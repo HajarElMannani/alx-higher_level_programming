@@ -482,7 +482,11 @@ class TestToDictionary(unittest.TestCase):
     def test_to_dictionary(self):
         r1 = Rectangle(10, 2, 1, 9, 3)
         r1_dict = r1.to_dictionary()
-        self.assertDictEqual(r1_dict, {'x': 1, 'y': 9, 'id': 3, 'height': 2, 'width': 10})
+        self.assertDictEqual(r1_dict, {'x': 1,
+                                       'y': 9,
+                                       'id': 3,
+                                       'height': 2,
+                                       'width': 10})
 
     def test_to_dictionary_one_argument(self):
         r1 = Rectangle(10, 2, 1, 9, 3)
