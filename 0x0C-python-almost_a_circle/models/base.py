@@ -64,12 +64,13 @@ class Base():
         args:
             dictionary(dict): a dictionary
         Return:  instance with all attributes already set'''
-        if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1, 1, 1)
-        if cls.__name__ == "Square":
-            dummy = cls(1, 1, 1)
-        dummy.update(**dictionary)
-        return dummy
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                dummy = cls(1, 1, 1, 1)
+            if cls.__name__ == "Square":
+                dummy = cls(1, 1, 1)
+            dummy.update(**dictionary)
+            return dummy
 
         
     @classmethod
