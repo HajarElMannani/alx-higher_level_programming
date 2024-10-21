@@ -161,6 +161,18 @@ class TestCreate(unittest.TestCase):
         r2 = Rectangle.create(**r1_dictionary)
         self.assertFalse(r1 == r2)
 
+    def test_create_rectangle_1(self):
+        r1 = Rectangle(4, 5, 9, 2, 4)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (4) 9/2 - 4/5", str(r1))
+
+    def test_create_rectangle_new(self):
+        r1 = Rectangle(4, 5, 9, 2, 4)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (4) 9/2 - 4/5", str(r2))
+
     def test_create_is(self):
         r1 = Rectangle(3, 5, 1)
         r1_dictionary = r1.to_dictionary()
@@ -186,10 +198,18 @@ class TestCreate(unittest.TestCase):
         self.assertFalse(s1 is s2)
 
     def test_create_square_original(self):
-        s1 = Square(5, 7, 4, 2)
+        s1 = Square(6, 9, 3, 1)
         s1_dictionary = s1.to_dictionary()
         s2 = Square.create(**s1_dictionary)
-        self.assertEqual("[Square] (2) 7/4 - 5", str(s1))
+        self.assertEqual("[Square] (1) 9/3 - 6", str(s1))
+
+    def test_create_square_new(self):
+        s1 = Square(3, 8, 1, 2)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual("[Square] (2) 8/1 - 3", str(s2))
+
+
 
 class TestLoadFromFiles(unittest.TestCase):
 
