@@ -1,9 +1,7 @@
 #!/usr/bin/node
 module.exports = class Square extends require('./5-square.js') {
   charPrint (C) {
-    if (!C) {
-      super.print();
-    } else {
+    if (C) {
       let characters = '';
       for (let i = 0; i < this.width; i++) {
         for (let j = 0; j < this.height; j++) {
@@ -12,6 +10,8 @@ module.exports = class Square extends require('./5-square.js') {
         console.log(characters);
         characters = '';
       }
+    } else {
+      super.print();
     }
   }
 };
