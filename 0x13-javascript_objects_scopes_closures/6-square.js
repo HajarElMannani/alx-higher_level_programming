@@ -4,14 +4,14 @@ module.exports = class Square extends require('./5-square.js') {
     if (C) {
       let characters = '';
       for (let i = 0; i < this.width; i++) {
-        for (let j = 0; j < this.height; j++) {
+        for (let j = 0; j < this.width; j++) {
           characters += 'C';
         }
         console.log(characters);
         characters = '';
       }
     } else {
-      this.print();
+      super.print();
     }
   }
 };
