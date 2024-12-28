@@ -19,5 +19,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     searched = session.query(State).filter(State.id == '2')
-    searched.name = 'New Mexico'
+    if (searched):
+        searched.name = 'New Mexico'
     session.commit()
