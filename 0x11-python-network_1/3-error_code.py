@@ -6,9 +6,9 @@ from sys import argv
 import urllib.error
 
 if __name__ == "__main__":
-    with urllib.request.urlopen(argv[1]) as resp:
         try:
-            body = resp.read().decode("utf-8")
+            with urllib.request.urlopen(argv[1]) as resp:
+                body = resp.read().decode("utf-8")
             print(body)
         except urllib.error.HTTPError as e:
             print("Error code: {}".format(e.code))
