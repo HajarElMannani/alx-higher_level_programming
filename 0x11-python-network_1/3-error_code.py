@@ -3,7 +3,7 @@
  and displays the body of the response '''
 import urllib.request
 from sys import argv
-
+import urllib.error
 
 if __name__ == "__main__":
     with urllib.request.urlopen(argv[1]) as resp:
