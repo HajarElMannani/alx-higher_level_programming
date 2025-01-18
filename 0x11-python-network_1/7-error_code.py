@@ -3,11 +3,11 @@
  and displays the body of the response '''
 import requests
 from sys import argv
-import urllib.error
+
 
 if __name__ == "__main__":
     resp = requests.get(argv[1])
-    if (resp.status.code >= 400):
-        print("Error code: {}".format(resp.status.code))
+    if (resp.status_code >= 400):
+        print("Error code: {}".format(resp.status_code))
     else:
         print(resp.text)
