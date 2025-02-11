@@ -7,14 +7,15 @@ request(url, function (error, response, body) {
     if (error) {
 	console.error(error);
     }
-    const bodyJson = JSON.parse(body);
+    const tasks = JSON.parse(body);
 let dict = {}
-    bodyJson.forEach((task) => {
-	if (task.completed === true) {
-		dict[task.userId] += 1;
+    tasks.forEach((task) => {
+	if (dict[task.userId] === undefined) {
+		dict[task.userId] = 1;
 	} else {
-	    dict[task.userId] = 1;
+	    dict[task.userId] += 1;
 	}
     });
     console.log(dict);
+
 });
